@@ -57,7 +57,7 @@
 
 * 第三篇： 传统框架部署到Serverless架构的利与弊 :kissing:
 
-* 第四篇： 通过Component实现高可用的Web服务
+* 第四篇： 通过Component实现高可用的Web服务（多地域部署容灾） :kissing:
 
 * 第五篇： Serverless架构下如何进行调试与日志的实时输出 :kissing:
 
