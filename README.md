@@ -49,7 +49,7 @@
 
 * 第二篇： 传统框架如何通过Component部署到Serverless架构上
 
-## 开发经验分享（5篇）
+## 开发经验分享（5篇）:kissing:
 
 * 第一篇： Serverless架构中的无状态性指的是什么？:kissing:
 
