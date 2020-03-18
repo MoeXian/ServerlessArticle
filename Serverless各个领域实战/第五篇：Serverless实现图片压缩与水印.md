@@ -149,9 +149,10 @@ def watermarImage(image, watermarkStr):
 def main_handler(event, context):
     for record in event['Records']:
         bucket = record['cos']['cosBucket']['name'] + '-' + record['cos']['cosBucket']['appid']
-        key = record['cos']['cosObject']['key']
-        download_path = '/tmp/{}'.format(key)
-        upload_path = '/tmp/new_pic-{}'.format(key)
+        key = "/".join(record['cos']['cosObject']['key'].split("/")[3:])
+        download_path = '/tmp/{}'.format(key.split('/')[-1])
+        download_path = '/tmp/{}'.format(key.split('/')[-1])
+        upload_path = '/tmp/new_mp4-{}'.format(key.split('/')[-1])
 
         # 下载图片
         response = cosClient.get_object(Bucket=bucket, Key=key)
@@ -167,7 +168,7 @@ def main_handler(event, context):
         cosClient.put_object_from_local_file(
             Bucket=bucket,
             LocalFilePath=upload_path,
-            Key="/compress-watermark/" + key
+            Key="/compress-watermark/" + key.split('/')[-1]
         )
 
 ```

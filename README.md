@@ -24,7 +24,7 @@ Serverless架构自从被提出就备受关注，近些年来更是一度成为�
 
 * 第七篇：函数计算与对象存储实现WordCount :kissing:
 
-* 第八篇：一键部署基于函数计算与API网关、MySQL的聊天室软件 :sweat_smile:
+* 第八篇：Serverless与Websocket的聊天工具 :kissing:
 
 * 第九篇：企业微信机器人：让你每天都可以了解世界 :kissing:
 
