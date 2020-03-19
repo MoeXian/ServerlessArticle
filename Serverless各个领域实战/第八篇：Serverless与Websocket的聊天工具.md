@@ -263,15 +263,9 @@ ChatClean:
 
 这里理论上设计的不是很合理，按照道理是可以通过`${restApi.url[0].internalDomain}`自动获得到url的，但是我并没有成功获得到这个url，所以只能先部署API网关，获得到这个地址之后，再重新部署。
 
-部署完成之后，我们可以编写HTML代码，实现一个简单的页面：
+部署完成之后，我们可以编写HTML代码，实现可视化的Websocket Client，其核心的JavaScript代码为：
 
-```html
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Chat Example</title>
-<script type="text/javascript">
+```javascript
 window.onload = function () {
     var conn;
     var msg = document.getElementById("msg");
@@ -332,56 +326,6 @@ window.onload = function () {
         appendLog(item);
     }
 };
-</script>
-<style type="text/css">
-html {
-    overflow: hidden;
-}
-
-body {
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    background: gray;
-}
-
-#log {
-    background: white;
-    margin: 0;
-    padding: 0.5em 0.5em 0.5em 0.5em;
-    position: absolute;
-    top: 0.5em;
-    left: 0.5em;
-    right: 0.5em;
-    bottom: 3em;
-    overflow: auto;
-}
-
-#form {
-    padding: 0 0.5em 0 0.5em;
-    margin: 0;
-    position: absolute;
-    bottom: 1em;
-    left: 0px;
-    width: 100%;
-    overflow: hidden;
-}
-
-</style>
-</head>
-<body>
-<div id="log"></div>
-<form id="form">
-    
-    <input type="text" id="msg" size="64"/>
-    <input type="submit" value="Send" />
-	
-</form>
-</body>
-</html>
-
 ```
 
 完成之后，我们打开两个页面，进行测试：
