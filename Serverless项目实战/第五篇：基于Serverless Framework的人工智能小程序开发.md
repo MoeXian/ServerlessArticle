@@ -1,4 +1,4 @@
-# 第六篇：基于Serverless Framework的人工智能小程序开发
+# 第五篇：基于Serverless Framework的人工智能小程序开发
 
 ## 项目背景
 
