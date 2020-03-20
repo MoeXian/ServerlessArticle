@@ -1,4 +1,4 @@
-# 第八篇：如何定制化开发Serverless Framework的Component
+# 第七篇：如何定制化开发Serverless Framework的Component
 
 ## 前言
 
