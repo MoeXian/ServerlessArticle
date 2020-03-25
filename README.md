@@ -64,3 +64,4 @@ Serverless架构自从被提出就备受关注，近些年来更是一度成为�
 ## 作者介绍
 
 刘宇，腾讯Serverless团队后台研发工程师。毕业于浙江大学，硕士研究生学历，曾在滴滴出行、腾讯科技做产品经理，本科开始有自主创业经历，是Anycodes在线编程的负责人（该软件累计下载量超100万次）。目前投身于Serverless架构研发，著书《Serverless架构：从原理、设计到项目实战》，参与开发和维护多个Serverless组件，是活跃的Serverless Framework的贡献者，也曾多次公开演讲和分享Serverless相关技术与经验，致力于Serverless的落地与项目上云。
+
