@@ -68,7 +68,7 @@ for eachPrediction, eachProbability in zip(predictions, probabilities):
 
 ```python
 from imageai.Prediction import ImagePrediction
-import os, base64, random
+import os, base64, random, json
 
 execution_path = os.getcwd()
 
@@ -79,15 +79,16 @@ prediction.loadModel()
 
 
 def main_handler(event, context):
-    imgData = base64.b64decode(event["body"])
+    imgData = base64.b64decode(json.loads(event["body"])["pidcture"])
     fileName = '/tmp/' + "".join(random.sample('zyxwvutsrqponmlkjihgfedcba', 5))
     with open(fileName, 'wb') as f:
         f.write(imgData)
     resultData = {}
     predictions, probabilities = prediction.predictImage(fileName, result_count=5)
     for eachPrediction, eachProbability in zip(predictions, probabilities):
-        resultData[eachPrediction] =  eachProbability
+        resultData[eachPrediction] = eachProbability
     return resultData
+
 
 ```
 
