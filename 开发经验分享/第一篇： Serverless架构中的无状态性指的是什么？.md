@@ -18,13 +18,13 @@ def main_handler(event, context):
     return("Hello World")
 ```
 
-![](../material/5-1-1.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-1-1.png)
 
 我们可以看到，通过点击测试按钮，输出了日志：`Test`，接下来，我们多次点击：
 
-![](../material/5-1-2.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-1-2.png)
 
-![](../material/5-1-3.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-1-3.png)
 
 可以看到，随着我们点击测试按钮，每次都在日志准确输出了`Test`。接下来，我们变换一下代码：
 
@@ -39,11 +39,11 @@ def main_handler(event, context):
 
 接下来同样的方法,连续点击三次测试，并且记录结果：
 
-![](../material/5-1-4.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-1-4.png)
 
-![](../material/5-1-5.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-1-5.png)
 
-![](../material/5-1-6.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-1-6.png)
 
 通过这一组测试，我们发现，这三个结果有点不太一样：只有第一次请求的时候，执行了这条语句：
 
@@ -63,11 +63,11 @@ def main_handler(event, context):
     return("Hello World")
 ```
 
-![](../material/5-1-7.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-1-7.png)
 
-![](../material/5-1-8.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-1-8.png)
 
-![](../material/5-1-9.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-1-9.png)
 
 可以看到，在第一次测试的时候，我们这个程序执行的时候，先执行了：
 
@@ -78,7 +78,7 @@ tempNumber = 100
 
 执行完成之后，`tempNumber`这个变量就会存在，在接下来的几次调用中，都直接取了这个值。所以可以这样认为：
 
-![](../material/5-1-10.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-1-10.png)
 
 也就是说，实际上函数在复用容器的情况下被执行（或者说是被触发），实际上可以认为是已经有一个进程被启动，每次触发，是通过这个进程来调用我们的入口方法，所以在方法之外写的各种操作，实际上是冷启动的时候，在启动进程的时候，会被执行。
 
@@ -94,7 +94,7 @@ tempNumber = 100
 
 1. 通过容器复用，做一些初始化操作
 刚刚说过了，如果在容器复用的前提下，那么在函数外面执行的内容是可以直接使用的，所以这里我们实际上是可以在外层进行一些初始化的，例如：
-![](../material/5-1-11.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-1-11.png)
 以上图的代码为例，通过这样的初始化，就不用每次调用函数的时候，都进行一次数据库的初始化/链接等而是可以复用已有的链接，如果在main_handler中进行数据库的初始化/链接，会影响函数性能，在高并发的情况下更容易把数据库的链接打满，造成极其恶劣的影响。
 
 2. 小心容器复用不要掉进坑里

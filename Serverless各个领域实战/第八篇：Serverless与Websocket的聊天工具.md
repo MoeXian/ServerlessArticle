@@ -10,7 +10,7 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 
 由于云函数是无状态且以触发式运行，即在有事件到来时才会被触发，因此，为了实现 WebSocket，云函数与 API 网关相结合，通过 API 网关承接及保持与客户端的连接。您可以认为 API 网关与 SCF 一起实现了服务端。当客户端有消息发出时，会先传递给 API 网关，再由 API 网关触发云函数执行。当服务端云函数要向客户端发送消息时，会先由云函数将消息 POST 到 API 网关的反向推送链接，再由 API 网关向客户端完成消息的推送。具体的实现架构如下：
 
-![](../material/2-8-2.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-8-2.png)
 
 对于 WebSocket 的整个生命周期，主要由以下几个事件组成：
 
@@ -39,7 +39,7 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 
 根据腾讯云官网提供的该动能的整体架构图：
 
-![](../material/2-8-3.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-8-3.png)
 
 这里我们可以使用COS（对象存储）作为持久化的方案，当用户建立链接存储ConnectionId到COS中，当用户断开连接删除该链接Id。
 
@@ -259,7 +259,7 @@ ChatClean:
 
 这里要注意，我们需要先部署API网关，部署完成，获得到回推地址，将回推地址以url的形式写入到对应函数的环境变量中：
 
-![](../material/3-8-4.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/3-8-4.png)
 
 这里理论上设计的不是很合理，按照道理是可以通过`${restApi.url[0].internalDomain}`自动获得到url的，但是我并没有成功获得到这个url，所以只能先部署API网关，获得到这个地址之后，再重新部署。
 
@@ -330,7 +330,7 @@ window.onload = function () {
 
 完成之后，我们打开两个页面，进行测试：
 
-![](../material/3-8-5.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/3-8-5.png)
 
 ## 总结
 

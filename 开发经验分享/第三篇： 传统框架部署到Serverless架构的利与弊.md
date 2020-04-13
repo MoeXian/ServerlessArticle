@@ -72,13 +72,13 @@ if __name__ == '__main__':
 本地运行之后，通过Postman进行三个接口简单测试：
 
 * Get请求：   
-![](../material/5-3-1.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-1.jpeg)
 
 * Post参数传递：   
-![](../material/5-3-2.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-2.jpeg)
 
 * Get参数传递：   
-![](../material/5-3-3.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-3.jpeg)
 
 ### 通过Flask-Component部署表现
 
@@ -112,18 +112,18 @@ FlaskComponent:
 
 部署完成
 
-![](../material/5-3-4.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-4.jpeg)
 
 接下来测试我们的目标三个接口
 
 * Get通过路径传参：
-![](../material/5-3-5.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-5.jpeg)
 
 * Post参数传递：
-![](../material/5-3-6.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-6.jpeg)
 
 * Get参数传递：
-![](../material/5-3-7.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-7.jpeg)
 
 通过上面的测试，我们可以看出，通过Flask-Component部署的云函数，也是可以具备常用的几种请求形式和传参形式。
 
@@ -134,34 +134,34 @@ FlaskComponent:
 接下来对性能进行一波简单的测试，首先购买一个云服务器，将这个部分代码部署到云服务器上。
 在云上购买服务器，保守一点买了1核2G
 
-![](../material/5-3-8.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-8.jpeg)
 然后配置环境，到服务可以跑起来：
 
-![](../material/5-3-9.jpeg)
-![](../material/5-3-10.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-9.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-10.jpeg)
 
 通过Post设置一下简单的Tests：
-![](../material/5-3-11.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-11.jpeg)
 
 然后对接口进行测试：
-![](../material/5-3-12.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-12.jpeg)
 
 非常顺利完成了接口测试：
-![](../material/5-3-13.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-13.jpeg)
 
 可以通过接口测试结果进行部分可视化：
-![](../material/5-3-14.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-14.jpeg)
 
 同时对数据进行统计：
-![](../material/5-3-15.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-15.jpeg)
 
 可以看到，通过上图和上表，服务器测的整体响应时间都快于云函数的响应时间。而且可以看到函数存在冷启动，一按出现冷启动，其响应时间会增长20余倍。在由于上述测试，仅仅是非常简单的接口，接下来我们来测试一下稍微复杂的接口，使用了jieba分词的接口，因为jieba分词接口存在：
 测试结果：
-![](../material/5-3-16.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-16.jpeg)
 
 可视化结果：
-![](../material/5-3-17.jpeg)
-![](../material/5-3-18.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-17.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-18.jpeg)
 
 通过对Jieba接口的测试，可以看到虽然服务器也会有因分词组件进行初始化而产生比较慢的响应时间，但是整体而言，速度依旧是远远低于云函数。
 
@@ -169,8 +169,8 @@ FlaskComponent:
 
 接下来，做一组新的接口测试，在函数中，直接返回内容，而不进行额外处理，看看函数+API网关性能和正常情况下的服务器性能对比
 
-![](../material/5-3-19.jpeg)
-![](../material/5-3-20.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-19.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-20.jpeg)
 
 可以看出虽然最小和平均耗时的区别不是很大，但是最大耗时基本上是持平。可以看出来，框架的加载会导致函数冷启动时间长度变得异常可怕。
 接下来通过Python代码，对Flask框架进行并发测试：
@@ -221,15 +221,15 @@ response mintime 0.439364910126
 
 首先第一步，我们要知道其他的框架是怎么运行的，例如Flask等，我们先通过腾讯云的Flask-Component，按照他的说明部署一下：
 
-![](../material/5-3-21.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-21.jpeg)
 
 非常简单轻松愉快的部署上线，然后在函数的控制台，我们把部署好的下载下来，研究一下：
 
-![](../material/5-3-22.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-22.jpeg)
 
 下载解压之后，我们可以看这样一个目录结构：
 
-![](../material/5-3-23.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-23.jpeg)
 
 蓝色框起来的，是依赖包，黄色的app.py是我们的自己写的代码，那么红色圈起来的是什么？这两个文件从哪里出来的？
 api_server.py文件内容：
@@ -249,20 +249,20 @@ def handler(event, context):
 
 可以看到，这里面是将我们创建的app.py文件引入，并且拿到了app这个对象，并且将event和context同时传递给severless_wsgi.py中的handle_reques方法中，那么问题来了，这个方法是什么？
 
-![](../material/5-3-24.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-24.png)
 
 这个方法内容好多......看着有点眼晕，但是，我们可以直接发现这一段代码：
 
-![](../material/5-3-25.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-25.jpeg)
 
 这一段是什么呢？这一段实际上就是将我们拿到的参数（event和context）进行转换，转换之后统一environ中，然后接下来通过werkzeug这个依赖，将这个内容变成request对象，并且与我们刚才说的app对象一起调用from_app方法。获得到反馈：
 
-![](../material/5-3-26.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-26.jpeg)
 
 并且按照API网关的响应集成的格式，将结果返回。
 此时此刻，各位看官可能有点想法了，貌似有一丢丢灵感出现了，那么我们不妨看一下Flask/Django这些框架的实现原理：
 
-![](../material/5-3-27.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-27.jpeg)
 
 通过这个简版的原理图，和我刚才说的内容，我们可以想到，实际上正常用的时候要通过web_server，进入到下一个环节，而我们云函数更多是一个函数，本不需要启动web server，所以我们就可以直接调用wsgi_app这个方法，其中这里的environ就是我们刚才的通过对event/context等进行处理后的对象，start_response可以认为是我们的一种特殊的数据结构，例如我们的response结构形态等。所以，如果我们自己想要实现这个过程，不使用腾讯云flask-component，可以这样做：
 
@@ -364,7 +364,7 @@ class FlaskLambda(Flask):
 
 这样一个流程，就会变得更加简单，清楚。整个实现过程，可以认为是对web server部分进行了一种“截断”或者是“替换”：
 
-![](../material/5-3-28.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-28.png)
 
 这就是对Flask-Component的基本分析思路，那么按照这个思路，我们是否可以将Django框架部署上Serverless架构呢？那么Flask和Django有什么区别呢？我这里的区别特指的是在运行启动过程中。
 
@@ -390,7 +390,7 @@ application = get_wsgi_application()
 是否就能解决问题呢？
 我们不妨试一下：
 
-![](../material/5-3-29.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-29.jpeg)
 
 建立好Django项目，直接增加index.py：
 
@@ -607,22 +607,22 @@ def hello(request):
 通过部署完成，并绑定apigw触发器，然后在postman中进行测试：
 get：
 
-![](../material/5-3-30.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-30.png)
 
 post：
 
-![](../material/5-3-31.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-31.png)
 
 可以看到，通过我们对运行原理的基本剖析和对django的改造，我们已经通过增加一个文件和相关依赖的方法，实现了Django上Serverless的过程。
 
 接下来，我们看一下，如何将这个代码写成一个Component：
 首先Clone下来Flask-Component的代码：
 
-![](../material/5-3-32.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-32.jpeg)
 
 然后，我们按照Django的部分模式进行修改：
 
-![](../material/5-3-33.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-33.jpeg)
 
 第一部分，是我们可能会依赖的一个依赖包，以及我们刚才放入的index.py文件。在用户调用这个Component的时候，我们会把这两个文件，放入用户的代码中，一并上传。
 第二部分是Serverless.js部分，这里的一个基本格式：
@@ -642,7 +642,7 @@ module.exports = TencentDjango
 
 部署这里主要流程也蛮简单的，首先将文件进行复制和处理，然后直接调用云函数的组件，通过函数中的include参数将这些文件额外加入，再通过调用apigw的组件来进网关的管理，而用户写的yaml中inpust的内容，会在inputs中获取，我们要做的就是对应的传给不同的组件：
 
-![](../material/5-3-34.jpeg)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-3-34.jpeg)
 
 当然除了这两部分对应放过去，上面的region等一些信息也要对应的进行处理。而调用底层组件方法也很简单：
 

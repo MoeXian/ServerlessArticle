@@ -12,7 +12,7 @@
 
 * 当我们有一个云函数，我们通过控制台触发（或者是云API的Invoke接口）：
 
-![](../material/5-5-1.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-5-1.png)
 
 我们可以看到，通过这个`测试`功能，我们很快将函数的结果获取到，并且看到了日志信息。
 
@@ -20,11 +20,11 @@
 
 我们先通过网关触发一个函数：
 
-![](../material/5-5-2.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-5-2.png)
 
 我们再通过这个函数的日志看看什么时候会刷出这个日志：
 
-![](../material/5-5-3.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-5-3.png)
 
 这个过程大概有11S，我们可以通过代码来进行更加详细的测试：
 
@@ -149,7 +149,7 @@ except TencentCloudSDKException as err:
 平均时间 17
 ```
 
-![](../material/5-5-4.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-5-4.png)
 
 
 通过这个结果，我们可以看到，我们的日志出现的速度有两个问题：
@@ -165,7 +165,7 @@ except TencentCloudSDKException as err:
 
 通过刚才的分析，我们可以知道，当我们在线上触发函数的时候，日志入库的速度非常缓慢，而且极其不稳定，在一定条件下，会严重影响我们的开发进度以及问题定位的进度，根据这个问题，我们可以通过Serverless架构，封装一套实时日志功能：
 
-![](../material/5-5-5.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-5-5.png)
 
 在这个操作过程中，主要使用一个API网关作为Websocket与客户端建立链接，三个函数（注册函数，上报函数，清理函数）与API搭配使用，存储桶作为部分资源的临时存储。
 

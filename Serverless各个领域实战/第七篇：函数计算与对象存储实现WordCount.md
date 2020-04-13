@@ -13,7 +13,7 @@ MapReduce在百度百科中的解释如下：
 	
 在开始之前，我们根据MapReduce的要求，我们绘制一个简单的流程图:
 
-![](../material/2-7-1.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-7-1.png)
 
 在这个结构中，我们可以看到，我们需要2个云函数分别作Mapper和Reducer，以及3个对象存储的存储桶，分别作为输入的存储桶、中间临时缓存的存储桶以及结果存储桶。在实例前，我们现在广州区准备3个对象存储，因为我们函数即将部署在广州区，所以我们在广州区建立三个存储桶：
 
@@ -26,7 +26,7 @@ MapReduce在百度百科中的解释如下：
 为了让整个Mapper和Reducer逻辑更加清晰，在开始之前先对传统的WordCount结构进行改造，使其更加适合云函数，同时合理分配
 Mapper和Reducer的工作：
 
-![](../material/2-7-2.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-7-2.png)
 
 ## 功能实现
 
@@ -297,12 +297,12 @@ WordCountReducer:
 完成之后，通过`sls --debug`指令进行部署，部署成功之后，进行基本的测试：
 
 1. 此时，我们准备一个英文文档:
-![](../material/2-7-3.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-7-3.png)
 2. 登录腾讯云后台，打开我们最初建立的存储桶：srcmr，并上传该文件;
 3. 传成功之后，我们稍等片刻，可以看到我们的Reducer程序已经在Mapper执行之后，产出日志:
-![](../material/2-7-4.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-7-4.png)
 此时，我们打开结果存储桶，查看结果:
-![](../material/2-7-5.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-7-5.png)
 
 至此，可以看到，我们完成了简单的词频统计功能。
 

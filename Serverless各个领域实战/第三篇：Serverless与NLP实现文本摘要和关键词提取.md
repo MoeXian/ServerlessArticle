@@ -307,15 +307,15 @@ nlpDemo:
 
 由于项目中使用了`jieba`，所以在安装的时候推荐在CentOS系统下与对应的Python版本下安装，也可以是用我之前为了方便做的一个依赖工具：
 
-![](../material/2-3-1.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-3-1.png)
 
 通过`sls --debug`进行部署：
 
-![](../material/2-3-2.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-3-2.png)
 
 部署完成，可以通过PostMan进行简单的测试：
 
-![](../material/2-3-3.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-3-3.png)
 
 可以看到，已经按照预期，输出了我们的目标结果。至此，我们的文本摘要/关键词提取的API已经部署完成。
 

@@ -8,11 +8,11 @@
 
 在前言部分说到，传统的图像处理方法，会比较占用资源，让服务器压力比较大，甚至会影响用户体验：
 
-![](../material/2-5-1.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-5-1.png)
 
 那么我们是否可以通过Serverless架构，实现一个异步处理流程？
 
-![](../material/2-5-2.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-5-2.png)
 
 所谓的异步处理流程就是，用户直接上传图片到对象存储，直接将图片等资源进行持久化，然后通过对象存储相关的触发器，触发指定函数，函数进行图像压缩以及图像水印等相关处理，再次进行持久化。
 
@@ -209,25 +209,25 @@ MyPicture:
 
 将项目通过通过`serverless`进行部署：
 
-![](../material/2-5-3.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-5-3.png)
 
 部署完成之后，我们在存储桶`picture-1256773370`中，新建`source/`目录与`compress-watermark/`目录。
 
 前者用来上传文件，后者用来生成新的文件。随机搜索一张图片：
 
-![](../material/2-5-4.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-5-4.png)
 
 可以看到这张图片4.5M，还是蛮大的，将这个图片上传到`source/`目录下：
 
-![](../material/2-5-5.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-5-5.png)
 
 稍等片刻，可以在`compress-watermark/`目录下发现有一个新的文件生成：
 
-![](../material/2-5-6.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-5-6.png)
 
 将文件下载下来，查看详情：
 
-![](../material/2-5-7.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-5-7.png)
 
 可以看到，图片尺寸，明显变小，并且从4.5M压缩到了340K，与此同时图像右下角出现了预设的水印标志。
 

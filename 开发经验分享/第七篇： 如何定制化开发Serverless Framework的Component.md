@@ -99,7 +99,7 @@ module.exports = GlobalComponent
 
 当然，由于我们在实际生产中，这个全局变量组件可能还有一些额外的用法，例如我是否可以在全局变量组件中直接引入某些Yaml等操作？例如：
 
-![](../material/5-8-1.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-8-1.png)
 
 其实这种做法还是比较常见的，因为我们可能存在多套配置，完全可以在这里进行不同配置文件的引入。
 
@@ -162,7 +162,7 @@ const othersComponent = await this.load('@serverless/tencent-scf', 'scf-componen
 
 这里面，有两个参数，一个是组件的名字：`@serverless/tencent-scf`，另一个是本次引用的名字：`scf-component`，本次引用的名字怎么理解呢？其实就是这样，在我们的缓存目录会生成很多组件，例如：
 
-![](../material/5-8-2.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-8-2.png)
 
 这是我部署的一个express之后，生成的缓存目录，这里面可以看到有文件叫这个名字：`Template.express.TencentFramework.apigateway.ap-guangzhou-apigateway`
 
@@ -175,7 +175,7 @@ tencent-express组件->tencent-framework->tencent-apigateway-mutil-region->tence
 > Template: 此处是一个统一的开头
 
 > express: 这个组件的在Yaml中的名字
-![](../material/5-8-3.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-8-3.png)
 
 > TencentFramework: 在tencent-express引用了tencent-framework时候，给他的本次引用的名字（可以不填写，不填写会默认）
 

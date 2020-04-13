@@ -350,13 +350,13 @@ myWebsite:
 
 完成之后就可以实现头像加装饰的功能，效果如下：
 
-![](../material/2-10-1.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-10-1.png)
 
 ## Serverless与人工智能联手增加头像装饰
 
 其实第一种直接加装饰的方法，是可以直接在前端来实现，可以不通过后端功能实现，既然用到了后端服务，用到了云函数，那么我们不防将人工智能的方法和Serverless架构结合，共同实现一个增加装饰的小工具，先进行一下效果的预览：
 
-![](../material/2-10-2.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-10-2.png)
 
 这一功能的主要做法就是，通过人工智能算法(此处是通过Dlib实现)，进行人脸的检测：
 

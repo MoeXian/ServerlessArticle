@@ -12,7 +12,7 @@
 
 以国内某云厂商为例，在其云函数中，我们创建一个云函数之后，可以看到在设置页面有几个设置项是可以进行设置的：
 
-![](../material/5-6-1.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-1.png)
 
 这两个设置范围分别是从64M到1536M，和1-900S，涉及到这样的配置，我觉得就是涉及到了资源评估。
 
@@ -47,15 +47,15 @@ def main_handler(event, context):
 
 当我导入一个自定义的dict到jieba中，如果此时我函数内存设置的默认128M内存限制+3S超时限制就会这样：
 
-![](../material/5-6-2.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-2.png)
 
 此时可以看到，由于在导入自定义dict的时候，内存消耗过大， 默认的额128不足以满足需求，所以此时我将其修改成最大：
 
-![](../material/5-6-3.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-3.png)
 
 他又提醒我们时间超时，所以我们还需要再修改超时时间为适当的数值（此处设定为10S）：
 
-![](../material/5-6-4.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-4.png)
 
 所以说，在关注程序本身的前提下，我们可以认为，我们要把内存设置到一个合理范围内，这个范围是>=程序本身需要的内存数值。
 
@@ -80,13 +80,13 @@ def main_handler(event, context):
 
 函数配置内存就是我们刚才说的，我们为程序选择的内存大小，运行时长，就是我们运行程序之后得到的结果：
 
-![](../material/5-6-5.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-5.png)
 
 以我这个程序为例，我用的是1536MB，则使用量为(1536/1024) * (3200/1000) = 4.8GBs
 
 当然，我此时如果是250MB的话，程序也可以运行：
 
-![](../material/5-6-6.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-6.png)
 
 此时的资源使用量为(256/1024) * (3400/1000) = 0.85GBs
 
@@ -94,7 +94,7 @@ def main_handler(event, context):
 
 产品单价是：
 
-![](../material/5-6-7.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-7.png)
 
 虽然说GBs的单价很低很低，但是当我们业务量上来之后，这个数字也是要值得注意的，因为我刚才的只是一个单次请求，如果每天有1000此次请求，那：
 
@@ -108,15 +108,15 @@ def main_handler(event, context):
 
 当然很多时候函数执行时间不会这么久，以我个人的某个函数为例：
 
-![](../material/5-6-10.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-10.png)
 
 计费时间均是100ms，每日调用量在6000次左右：
 
-![](../material/5-6-9.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-9.png)
 
 如果按照64M内存来看，单资源费用只要76元一年，而如果内存都设置称为1536，则一年要1824元！这个费用相当于：
 
-![](../material/5-6-8.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-8.png)
 
 所以说，超时时间，是需要对代码和业务场景进行评估来进行设置，他可能关系到程序运行的稳定和功能的完整性；内存，则不仅仅在程序使用层面有着不同的需求，在费用成本等方面也占有极大的比重，所以内存设置还是需要对程序进行一个评估，那么评估问题来了，我设置多大比较划算呢？同样是之前的代码，在本地进行简单的脚本编写：
 
@@ -179,15 +179,15 @@ except TencentCloudSDKException as err:
    
 运行之后会为我们输出一个简单的图像：
 
-![](../material/5-6-12.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-12.png)
 
 从上到下分别是不同次数计费时间图，计费时间分布图，以及不同次数运行时间图和运行时间分布图。通过对256M起步，1536M终止，步长128M，每个内存大小串行靠用50次，统计表：
 
-![](../material/5-6-11.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-11.png)
 
 注：为了让统计结果更加清晰，差异性比较大，比较明显，在程序代码中进行了部分无用操作用来增加程序执行时间。正常使用jieba的速度基本都是毫秒级的：
 
-![](../material/5-6-13.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-13.png)
 
 通过表统计可以看到在满足程序内存消耗的前提下，内存大小对程序执行时间的影响并不是很大，反而是对计费影响很大。
 
@@ -206,13 +206,13 @@ except TencentCloudSDKException as err:
 
 首先，我会将我的函数上线，选择一个稍微大一点的内存，例如，我将我的函数执行一次：
 
-![](../material/5-6-14.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-14.png)
 
 得到这样的结果，我就将我的函数设置为128M或者256M，超时时间设置成3S。
 
 然后我让我的函数跑一段时间，例如我这个接口每天触发次数大约为4000+次：
 
-![](../material/5-6-17.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-17.png)
 
 我就将这个函数的日志捞出来，写成一脚本，做统计：
 
@@ -332,7 +332,7 @@ except TencentCloudSDKException as err:
 内存平均使用:	 24.8478125 MB
 ```
 
-![](../material/5-6-15.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/5-6-15.png)
 
 通过这样一个结果，可以清楚看出，近500次，每次函数的时间消耗和内存使用。
 

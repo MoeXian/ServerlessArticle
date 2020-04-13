@@ -7,10 +7,10 @@
 通常情况下，这些以来图像识别或者分类的工具，都是在客户端进行数据采集，在服务端进行运算获得结果，也就是说一般情况下都是有专门的API实现图像识别的。例如各大云厂商都会为我们有偿提供类似的能力：
 
 * 华为云图像标签
-![](../material/2-2-10.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-2-10.png)
 
 * 腾讯云图像分析
-![](../material/2-2-11.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-2-11.png)
 
 本文将会通过一个有趣的Python库，快速将图像分类的功能搭建在云函数上，并且和API网关结合，对外提供API功能，实现一个Serverless架构的"图像分类API"。
 
@@ -42,7 +42,7 @@ for eachPrediction, eachProbability in zip(predictions, probabilities):
 
 我们可以在本地进行初步运行，当我们指定图片`1.jpg`为下图的时候：
 
-![](../material/2-2-12.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-2-12.png)
 
 可以得到结果：
 
@@ -104,7 +104,7 @@ def main_handler(event, context):
 
 在官方文档复制模型文件地址：
 
-![](../material/2-2-1.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-2-1.png)
 
 使用`wget`直接安装：
 
@@ -112,11 +112,11 @@ def main_handler(event, context):
 wget https://github.com/OlafenwaMoses/ImageAI/releases/download/1.0/squeezenet_weights_tf_dim_ordering_tf_kernels.h5
 ```
 
-![](../material/2-2-2.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-2-2.png)
 
 接下来，我们就需要进行安装依赖了，这里面貌似安装的内容蛮多的：
 
-![](../material/2-2-3.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-2-3.png)
 
 由于腾讯云Serveless的产品，在Python Runtime中还不支持在线安装依赖，所以我们需要手动打包依赖，并且上传。在Python的各种依赖库中，有很多依赖可能有编译生成二进制文件的过程，这就可能导致不同环境下打包的依赖无法通用。
 
@@ -124,13 +124,13 @@ wget https://github.com/OlafenwaMoses/ImageAI/releases/download/1.0/squeezenet_w
 
 对于很多MacOS用户和Windows用户来说，这确实不是一个很友好的过程，所以在之前为了方便，我在Serverless架构上做了一个在线打包依赖的工具，所以这时候，直接用该工具进行打包：
 
-![](../material/2-2-4.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-2-4.png)
 
-![](../material/2-2-5.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-2-5.png)
 
 生成压缩包之后，直接下载解压，并且放到自己的项目中即可：
 
-![](../material/2-2-6.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-2-6.png)
 
 最后，一步了，我们创建`serverless.yaml`
 
@@ -162,7 +162,7 @@ imageDemo:
 
 完成之后，执行我们的`sls --debug`部署，部署过程中会有扫码的登陆，登陆之后等待即可，完成之后，即可看到我们部署的地址。
 
-![](../material/2-2-7.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-2-7.png)
 
 ## 基本测试
 
@@ -187,7 +187,7 @@ print(urllib.request.urlopen(urllib.request.Request(
 
 通过网络搜索一张图片，例如我找了这个：
 
-![](../material/2-2-8.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-2-8.png)
 
 得到运行结果：
 

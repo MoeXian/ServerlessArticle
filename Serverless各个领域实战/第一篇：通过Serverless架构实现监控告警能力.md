@@ -11,7 +11,7 @@ Serverless服务的一个很重要的应用场景就是运维、监控与告警�
 
 针对Web服务，我们先设计一个简单的监控告警功能的流程：
 
-![](../material/2-1-1.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-1-1.png)
 
 在这个流程中，我们仅对网站的状态码进行监控，即返回的状态为200，则判定网站可正常使用，否则进行告警:
 
@@ -87,16 +87,16 @@ MyWebMonitor:
 > 创建定时触发器时，用户能够使用标准的 Cron 表达式的形式自定义何时触发。定时触发器现已推出秒级触发功能，为了兼容老的定时触发器，因此 Cron 表达式有两种写法。
 > #### Cron 表达式语法一（推荐）
 > Cron 表达式有七个必需字段，按空格分隔。
-> ![](../material/2-1-3.png)
+> ![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-1-3.png)
 > 其中，每个字段都有相应的取值范围：
-> ![](../material/2-1-4.png)
+> ![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-1-4.png)
 > #### Cron 表达式语法二（不推荐）
 > Cron 表达式有五个必需字段，按空格分隔。
-> ![](../material/2-1-5.png)
+> ![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-1-5.png)
 > 其中，每个字段都有相应的取值范围：
-> ![](../material/2-1-6.png)
+> ![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-1-6.png)
 > #### 通配符
-> ![](../material/2-1-7.png)
+> ![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-1-7.png)
 > #### 注意事项
 > 在 Cron 表达式中的“日”和“星期”字段同时指定值时，两者为“或”关系，即两者的条件分别均生效。
 > #### 示例
@@ -109,7 +109,7 @@ MyWebMonitor:
 
 所以可以认为我们上面的代码是每5秒触发一次，当然，我们还可以设置没分钟，每小时触发，这就看我们对我们网站监控的密度是多少了。当我们网站服务不可用时，可以收到告警：
 
-![](../material/2-1-2.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-1-2.png)
 
 这种网站监控方法是比较简单的，当然也可能会不准。我们经常对网站或者服务进行监控并不是简简单单的看其能不能返回200的状态码，还要看链接耗时、下载耗时以及不同区域、不同运营商访问我们的网站或者服务的延时信息等。所以，我们需要对这个代码进行额外的更新与优化：
 1.	通过在线网速测试的网站，抓包获取不通地区不同运营商的请求特征；
@@ -118,7 +118,7 @@ MyWebMonitor:
 	我们这里以站长工具网站中国内网站测速工具 为例，可以通过网页查到相关信息：
 所以我们可以对依稀网站测速工具进行封装，例如：
 
-![](../material/2-1-8.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-1-8.png)
 
 通过对网页进行分析，获取请求特征，包括Url，Form data，以及Headers等相关信息，其中该网站在使用不同监测点对网站进行请求时，是通过Form data中的guid的参数实现的，例如部分监测点的guid：
 
@@ -306,7 +306,7 @@ def main_handler(event, context):
 
 由于，是学习为主，所以这里我已经将节点列表进行了缩减，只留了几个。通过部署，可得到结果：
 
-![](../material/2-1-9.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-1-9.png)
 
 当然，告警的灵敏度和监控的频率，在实际生产过程中可以根据自己的需求进行调整。
 
@@ -318,7 +318,7 @@ def main_handler(event, context):
 
 首先，可以设计简单的流程图：
 
-![](../material/2-1-10.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-1-10.png)
 
 在开始项目之前，我们要准备一些基础的模块：
 
@@ -461,11 +461,11 @@ def sendEmail(content, to_user):
 
 * 短信告警样式：
 
-![](../material/2-1-11.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-1-11.png)
 
 * 企业微信告警样式：
 
-![](../material/2-1-12.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-1-12.png)
 
 ## 总结
 

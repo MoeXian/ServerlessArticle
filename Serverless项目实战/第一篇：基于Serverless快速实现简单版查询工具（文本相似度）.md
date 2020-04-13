@@ -17,7 +17,7 @@
 
 Excel样式主要包括书名和编号，同时下面包括分类的tab：
 
-![](../material/3-1-1.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/3-1-1.png)
 
 ### 基于函数的搜索功能
 
@@ -117,7 +117,7 @@ def main_handler(event, context):
 
 同时配置APIGW：
 
-![](../material/3-1-2.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/3-1-2.png)
 
 
 ### 功能页面
@@ -202,7 +202,7 @@ def main_handler(event, context):
 
 为了便于朋友使用，将这个页面用过Webview封装成一个APP，整体效果如下：
 
-![](../material/3-1-3.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/3-1-3.png)
 
 ## 总结
 

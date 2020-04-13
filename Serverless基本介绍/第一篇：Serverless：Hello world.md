@@ -6,7 +6,7 @@
 
 自2006年8月9日，Google首席执行官埃里克·施密特（Eric Schmidt）在搜索引擎大会（SESSanJose2006）首次提出“云计算”（Cloud Computing）的概念之后，云计算的发展可以用日新月异这个词来形容。
 
-![](../material/1-1-1.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-1.png)
 
 在短短十几年的发展过程中，云计算也从IaaS到PaaS，再到SaaS，逐渐的将去服务器化的趋势表现的愈发的明显。就目前的情况来看，全球各大IT企业，都在紧罗密布的部署自己的“云事业”，尤其是Serverless相关概念的推广和产品的推出以及项目的落地，包括AWS、Google Cloud、Azure、阿里云、腾讯云、华为云等在内的云厂商，无一例外的向Serverless进军。或许云计算下一个阶段，可能就是BaaS+FaaS+Others，即Serverless，当然也可能这个阶段就是！
 
@@ -17,23 +17,23 @@ Serverless可以说是一种架构，一种云计算发展的产物，至于具�
 
 当然这个描述貌似很长，读起来可能也有点干涩难懂，但是大家可以简单的粗暴的把Serverless认为是BaaS + FaaS，如果用一张图来表示上面的描述，可以是：
 
-![](../material/1-1-2.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-2.png)
 
 说到这里，可能不同的人已经对Serverless有了不同的勾勒，但是可能普遍还有一个疑问，我怎么用Serverless，他像云服务器上传我项目？还是像一种框架，我用他写代码？用了它我可以得到什么？性能的提升？效率的提高？成本的降低？
 
 首先，我们以一个常见的Web服务为例：
 
-![](../material/1-1-3.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-3.png)
 
 在这个图中，服务器中可能涉及路由规则，鉴权逻辑以及其他各类复杂的业务代码，同时，开发团队要付出很大的精力在这个服务器的运维上面，包括客户量突然增多时是否需要扩容服务器；服务器上的脚本，业务代码等是否还在健康运行；是否有黑客在不断地对服务器发起攻击；也就是说，在这个图中，当我们把这个思路切换到Serverless的逻辑之后，变成了这样：
 
-![](../material/1-1-4.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-4.png)
 
 可以认为，当客户端和数据库未发生变的前提下，服务器变化巨大，之前需要开发团队维护的路由模块以及鉴权模块都将接入服务商提供的API网关系统以及鉴权系统，开发团队无须再维护这两部分的业务代码，只需要持续维护相关规则即可。同时业务代码也被拆分成了函数粒度，不同函数表示不同的功能。同时，在这个结构下，我们已经看不到服务器的存在，是因为Serverless的目的是让使用者只关注自己的业务逻辑即可，所以一部分安全问题，资源调度问题（例如用户量暴增、如何实现自动扩容等）全都交给云厂商负责，并且相对于传统项目而言，传统项目无论是否有用户访问，服务都在运行中，都是有成本支出，而Serverless而言，只有在用去发起请求时，函数才会被激活并且执行，并且会按量收费，相对来说可以在有流量的时候才有支持，没有流量的时候就没有支出，相对来说，成本会进一步降低。
 
 通过这个分析和描述，不难看出，Serverless架构相对于传统的开发模式有什么区别，也逐渐的发现了它的优势，但是问题来了，很多工作都不需要我们做了，都交给云厂商做了，那么我们做做什么？
 
-![](../material/1-1-5.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-5.png)
 
 使用Serverless架构，用户不需要再自己维护服务器，也不需要自己操心服务器的各种性能指标和资源利用率，而是可以让用户付出更多的时间和精力去关心和关注应用程序本身的状态和逻辑。同时Serverless应用本身的部署十分容易，我们只要上传基本的代码，例如Python程序只需要上传其逻辑与依赖包，C/C++、Go等语言只需上传其二进制文件，Java只需要上传其Jar包等即可，同时不需使用Puppet、Chef、Ansible或Docker来进行配置管理，大大降低了运维成本。对于运维来说，Serverless架构也不再需要监控底层的数据，例如不再需要监控磁盘使用量、CPU使用率等，可以更加专注的将监控目光放到监控应用程序本身的度量。同时在Serverless架构上，运维人员的工作角色会有所转变，部署将变得更加自动化，监控将更加面向应用程序本身。
 
@@ -47,27 +47,27 @@ Serverless可以说是一种架构，一种云计算发展的产物，至于具�
 
 接下来，我们来体验一下Serverless，以腾讯云为例，我们通过腾讯云控制台，选择Serverless分类下的云函数：
 
-![](../material/1-1-6.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-6.png)
 
 接下来就可以看到Serverless中的一部分：函数计算部分。此时，我们可以新建一个函数，进行基本的测试，体验一下Serverless下的Hello World和我们传统的Hello World有什么不同。
 
 * 新建函数：
-![](../material/1-1-7.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-7.png)
 * 选择运行时（就是我们要用的编程语言）：
-![](../material/1-1-8.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-8.png)
 * 进行代码的编写：
-![](../material/1-1-9.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-9.png)
 * 点击完成，即可保存代码
 * 进行代码测试：
-![](../material/1-1-10.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-10.png)
 * 可以看到测试结果：
-![](../material/1-1-11.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-11.png)
 
 至此，我们完成了一个函数的基本编写，但是仔细想一下：貌似也没什么，感觉就是和一些在线编程工具差不多，可以在线编写代码，运行。BaaS体现在了哪里？体现在了给我们提供了运行环境？除了写了一个hello world，我还能干什么？
 
 接下来，我们进行触发器的体验，所谓的触发器，就是说，我们的函数一般情况下都是"休息"的，他们并不工作，只有在一个"东西触碰它"，"激活它"，他才会起来干活，而这个东西就是触发器。刚刚我们是怎么让函数"起来工作的"？是通过屏幕上的"测试按钮"，所以说这也算是一个触发器。那么除了这个触发器，还有那些？
 
-![](../material/1-1-12.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-12.png)
 
 可以看到，目前腾讯云提供给我们的触发器包括：
 
@@ -83,15 +83,15 @@ Serverless可以说是一种架构，一种云计算发展的产物，至于具�
 
 我们新建一个API网关服务：
 
-![](../material/1-1-13.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-13.png)
 
 创建完成，系统会哥诶我们分配一个地址：
 
-![](../material/1-1-14.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-14.png)
 
 通过浏览器打开这个地址：
 
-![](../material/1-1-15.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-15.png)
 
 我们可以看到，我们成功的搭建了一个Web的服务，后台想我们展示了一个`Hello World`，如果是传统开发条件下，我们要做一个这样的页面，要做哪些工作？
 
@@ -113,7 +113,7 @@ Serverless可以说是一种架构，一种云计算发展的产物，至于具�
 
 刚才说到了触发器，每种触发器都会和函数有一个规约，我给你一种什么样的格式数据，通过函数下面的测试模板可以看到：
 
-![](../material/1-1-16.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-16.png)
 
 通过这里，可以看到API网关和函数约定的一个结构：
 
@@ -162,7 +162,7 @@ Serverless可以说是一种架构，一种云计算发展的产物，至于具�
 
 那么什么是函数的入口呢？
 
-![](../material/1-1-17.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-17.png)
 
 入口函数实际上就是用户代码中的文件名+方法名，这里面默认设定就是index文件中的main_handler方法，可以看到main_handler方法，确实有一个参数是event，这个参数就是触发器传递过来的数据结构。另外一个context参数是上下文，用户用户对上下文内容的处理，例如上游资源产生的RequestId，例如一些环境信息，密钥信息等。
 
@@ -177,7 +177,7 @@ def main_handler(event, context):
 
 通过4行代码编写之后，我们绑定API网关，并且通过浏览器访问可以看到：
 
-![](../material/1-1-18.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-18.png)
 
 是的，这样一个功能，只需要4行代码就可以搞定。
 
@@ -190,7 +190,7 @@ def main_handler(event, context):
 
 * 弹性伸缩
 
-![](../material/1-1-19.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-19.png)
 
 传统意义上，我们的一台服务器能接受多大的流量，峰值是多少，是需要我们进行评估的，同时也要后期不断维护和更新数据的，但是在Serverless架构下，这个问题不需要用户去考虑，云厂商将会为用户实现弹性伸缩的能力。当平台接收到第一个触发函数的事件时，它将启动一个容器来运行你的代码。如果此时收到了新的事件，而第一个容器仍在处理上一个事件，平台将启动第二个代码实例来处理第二个事件。SCF的这种自动的零管理水平缩放，将持续到有足够的代码实例来处理所有的工作负载。当并发出现的时候，实际上云厂商会启动多个容器来应对"流量洪峰"，相对于传统服务器来说，在这一层面上，Serverless架构或者说云函数真的是很方便了。
 
@@ -202,7 +202,7 @@ def main_handler(event, context):
 
 * 冷启动
 
-![](../material/1-1-20.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-20.png)
 
 说到Serverless架构的缺点就不得不说冷启动问题，冷启动无论是AWS还是Google还是腾讯云，阿里云，都是普遍存在的。一般情况下来说，冷启动就是函数在"睡觉"，突然有一个触发"他睁眼睛"的过程，实际上就是后台拉起容器、下载代码、启动进程、触发入口方法的一个过程，所以一般情况下，容器在首次启动的时候都会有冷启动，通过上图可以看到，函数冷启动可能达到击败毫秒甚至数秒，这对一些业务可能是致命打击，当然各个云厂商也在努力通过各种策略、方案降低冷启动率。
 
@@ -214,6 +214,6 @@ def main_handler(event, context):
 
 云计算的发展，Serverless是一个必然的产物。Serverless作为一个新技术或者说是一个新家的架构，很难通过一篇文章进行描述清楚，无论是他的优点还是缺点也都不仅仅是上文所描述的那两个，只是挑了比较典型的说说而已，Serverless在使用的时候也会有很多坑，有的时候真的是从入门到放弃，有的时候也会觉得他真的很方便，又从放弃到入坑，但是无论怎么说，作为一个相对来说比较新鲜的事物，Serverless有更多的领域，价值等待我们去开发和探索，包括Serverless的应用领域，使用经验等。
 
-![](../material/1-1-21.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/1-1-21.png)
 
 Serverless架构被称为是“真正实现了当初云计算的目标”，这种说法虽然有些夸张，但是也从另一方面表现出了大家对Serverless架构的期盼和信心，自2012年被提出至今，Serverless架构也是经历了7年时间，正在逐渐的走向成熟。随着容器技术，IoT，5G，区块链等技术的快速发展， 技术上对去中心化，轻量虚拟化，细粒度计算等技术需求愈发强烈，而Serverless必将借势迅速发展，未来Serverless将在云计算的舞台上大放异彩！

@@ -8,11 +8,11 @@
 
 > 视频应用、社交应用等场景下，用户上传的图片、音视频的总量大、频率高，对处理系统的实时性和并发能力都有较高的要求。例如：对于用户上传的视频短片，我们可以使用多个云函数对其分别处理，对应不同的清晰度（1080p、720p等），以满足不同场景下用户的需求，适应移动网络带宽较小且不稳定的特性。
 
-![](../material/2-6-1.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-6-1.png)
 
 在阿里云的函数计算也有相关的描述：
 
-![](../material/2-6-2.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-6-2.png)
 
 所以可以看到视频的压缩/转码等操作，在Serverless架构下确实是一个很好的典型"应用"。那么有了这样的一个"典型"应用，我们应该如何实现他呢？
 
@@ -27,11 +27,11 @@
 
 通过ffmpeg的官网，我们可以看到不同的操作系统，有着不同的文件供我们选择：
 
-![](../material/2-6-3.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-6-3.png)
 
 也就是说，我们如果要在云函数中使用这个模块，那么我们就要有这样一个模块是在云函数所在的环境下可以运行起来的，根据云函数的文档可以看到：
 
-![](../material/2-6-4.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-6-4.png)
 
 也就是说，我们要有一个在CentOS操作系统下可以使用的ffmpeg，接下来，我们就准备这个文件：
 
@@ -133,11 +133,11 @@ MyVideo:
 
 部署完成之后，我们将一个测试的MP4文件上传到对应的存储的`source/`文件夹中：
 
-![](../material/2-6-5.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-6-5.png)
 
 稍等片刻，我们可以看到目标文件夹出现了对应的视频：
 
-![](../material/2-6-6.png)
+![](https://others-1256773370.cos.ap-chengdu.myqcloud.com/article/material/2-6-6.png)
 
 可以看到两个视频文件的差距。
 
