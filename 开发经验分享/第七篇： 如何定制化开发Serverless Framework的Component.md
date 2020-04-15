@@ -54,7 +54,7 @@ ScfComponent_2:
 
 一个标准的Serverless Component的格式是这样的：
 
-```javascript
+```node
 // serverless.js
 const { Component } = require('@serverless/core')
 class MyComponent extends Component {
